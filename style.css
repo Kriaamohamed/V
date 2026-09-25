@@ -1,0 +1,1210 @@
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    touch-action: manipulation;
+}
+
+body {
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    color: #fff;
+    text-align: center;
+
+    background: linear-gradient(
+        -45deg,
+        #0f172a,
+        #581c87,
+        #1e3a8a
+    );
+
+    background-size: 400% 400%;
+
+    animation: bg 15s infinite;
+
+    overflow-x: hidden;
+}
+
+@keyframes bg {
+
+    0% {
+        background-position: 0%;
+    }
+
+    50% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: 0%;
+    }
+
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 15px;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    backdrop-filter: blur(5px);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+}
+
+.logo {
+
+    color: #38bdf8;
+
+    font-family: 'Orbitron';
+
+    margin: 0;
+
+}
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 4px;
+
+}
+
+nav button,
+#languageSelect {
+
+    background: #a855f7;
+
+    border: none;
+
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    color: #fff;
+
+    margin: 2px;
+
+    font-size: 0.9rem;
+
+    cursor: pointer;
+
+}
+
+#languageSelect {
+
+    appearance: auto;
+
+}
+
+
+/* ==================================================
+   LOGIN / ADMIN
+================================================== */
+
+.admin-nav-button {
+
+    display: none;
+
+    background: #facc15 !important;
+
+    color: #111 !important;
+
+    font-weight: bold;
+
+}
+
+.logout-button {
+
+    display: none;
+
+    background: #ef4444 !important;
+
+}
+
+
+/* ==================================================
+   TOUCH
+================================================== */
+
+nav button:active,
+.buy-btn:active,
+.desc-btn:active,
+.card:active,
+.admin-add-button:active,
+.whatsapp-order:active {
+
+    transform: scale(0.92);
+
+    opacity: 0.8;
+
+}
+
+
+/* ==================================================
+   PAGES
+================================================== */
+
+.page {
+
+    display: none;
+
+    padding: 20px;
+
+    animation: fadeIn 0.4s;
+
+}
+
+.active {
+
+    display: block;
+
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.hero {
+
+    padding: 50px 10px;
+
+}
+
+.hero img {
+
+    width: 100px;
+
+    filter:
+        drop-shadow(
+            0 0 10px #38bdf8
+        );
+
+}
+
+
+/* ==================================================
+   PRODUCTS
+================================================== */
+
+.cards {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 15px;
+
+}
+
+.card {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.1
+        );
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    width: 170px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.1
+        );
+
+}
+
+.card img {
+
+    width: 40px;
+
+    height: 40px;
+
+    object-fit: contain;
+
+}
+
+.price {
+
+    color: #facc15;
+
+    font-size: 1.3rem;
+
+    font-weight: bold;
+
+}
+
+.btn-group {
+
+    display: flex;
+
+    gap: 5px;
+
+    margin-top: 10px;
+
+}
+
+.buy-btn {
+
+    background: #22c55e;
+
+    border: none;
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    flex: 2;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+.desc-btn {
+
+    background: #6366f1;
+
+    border: none;
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    flex: 1;
+
+    cursor: pointer;
+
+}
+
+
+/* ==================================================
+   WHATSAPP
+================================================== */
+
+.whatsapp-float {
+
+    position: fixed;
+
+    bottom: 20px;
+
+    right: 20px;
+
+    background: #25D366;
+
+    width: 60px;
+
+    height: 60px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 4px 10px
+        rgba(
+            0,
+            0,
+            0,
+            0.3
+        );
+
+    z-index: 1000;
+
+    cursor: pointer;
+
+}
+
+
+/* ==================================================
+   PULSE
+================================================== */
+
+.pulse {
+
+    animation:
+        pulse 2s infinite;
+
+}
+
+@keyframes pulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* ==================================================
+   MODAL
+================================================== */
+
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.75
+        );
+
+    backdrop-filter: blur(6px);
+
+    z-index: 2000;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+}
+
+.modal.show {
+
+    display: flex;
+
+}
+
+.modal-box {
+
+    width: 100%;
+
+    max-width: 420px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #111827;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.15
+        );
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    position: relative;
+
+    box-shadow:
+        0 20px 60px
+        rgba(
+            0,
+            0,
+            0,
+            0.5
+        );
+
+}
+
+.close-modal {
+
+    position: absolute;
+
+    top: 10px;
+
+    left: 15px;
+
+    background: transparent;
+
+    border: none;
+
+    color: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+}
+
+
+/* ==================================================
+   INPUTS
+================================================== */
+
+.modal-box input,
+.modal-box select,
+.admin-panel input {
+
+    width: 100%;
+
+    margin: 8px 0;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-family: 'Cairo', sans-serif;
+
+}
+
+
+/* ==================================================
+   LOGIN
+================================================== */
+
+.login-submit {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #22c55e;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+#loginMessage {
+
+    min-height: 25px;
+
+    color: #f87171;
+
+}
+
+
+/* ==================================================
+   ORDER
+================================================== */
+
+.order-box {
+
+    text-align: right;
+
+}
+
+.selected-service {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-radius: 12px;
+
+    padding: 12px;
+
+    margin-bottom: 10px;
+
+}
+
+.selected-service strong {
+
+    color: #facc15;
+
+}
+
+.field-label {
+
+    display: block;
+
+    margin-top: 10px;
+
+    margin-bottom: 5px;
+
+    font-weight: bold;
+
+}
+
+.delivery-info {
+
+    background:
+        rgba(
+            34,
+            197,
+            94,
+            0.12
+        );
+
+    border:
+        1px solid
+        rgba(
+            34,
+            197,
+            94,
+            0.3
+        );
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    margin-top: 10px;
+
+    text-align: center;
+
+}
+
+.delivery-info strong {
+
+    color: #4ade80;
+
+}
+
+.method-title {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+}
+
+.contact-methods {
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+.whatsapp-order {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 13px;
+
+    background: #25D366;
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+.order-message {
+
+    text-align: center;
+
+    min-height: 25px;
+
+    color: #facc15;
+
+}
+
+
+/* ==================================================
+   ADMIN
+================================================== */
+
+.admin-page {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+}
+
+.admin-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+
+    padding: 20px;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.3
+        );
+
+    border-radius: 20px;
+
+}
+
+.admin-panel {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.1
+        );
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+}
+
+.admin-add-button {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #22c55e;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+.back-button {
+
+    background: #6366f1;
+
+    border: none;
+
+    color: white;
+
+    padding: 10px 15px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+}
+
+
+/* ==================================================
+   IMAGE UPLOAD
+================================================== */
+
+.upload-label {
+
+    display: block;
+
+    text-align: right;
+
+    margin-top: 10px;
+
+    font-weight: bold;
+
+}
+
+#newProductImage {
+
+    color: white;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+}
+
+.image-preview {
+
+    display: none;
+
+    margin: 10px auto;
+
+    width: 100px;
+
+    height: 100px;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.2
+        );
+
+}
+
+.image-preview img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+}
+
+
+/* ==================================================
+   ADMIN PRODUCT
+================================================== */
+
+.admin-product {
+
+    display: grid;
+
+    grid-template-columns:
+        80px
+        1fr
+        auto;
+
+    gap: 15px;
+
+    align-items: center;
+
+    padding: 15px;
+
+    margin: 10px 0;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.25
+        );
+
+    border-radius: 15px;
+
+}
+
+.admin-product img {
+
+    width: 60px;
+
+    height: 60px;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+
+}
+
+.admin-product-info {
+
+    text-align: right;
+
+}
+
+.admin-product-info h4 {
+
+    margin:
+        0 0 5px;
+
+}
+
+.admin-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+}
+
+.admin-actions button {
+
+    border: none;
+
+    padding: 8px 10px;
+
+    border-radius: 8px;
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+.edit-btn {
+
+    background: #6366f1;
+
+}
+
+.delete-btn {
+
+    background: #ef4444;
+
+}
+
+
+/* ==================================================
+   ORDERS
+================================================== */
+
+.orders-title {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+.orders-count {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 35px;
+
+    height: 35px;
+
+    background: #facc15;
+
+    color: #111;
+
+    border-radius: 50%;
+
+    font-weight: bold;
+
+}
+
+.no-orders {
+
+    padding: 20px;
+
+    opacity: 0.7;
+
+}
+
+.admin-order {
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.28
+        );
+
+    border-radius: 15px;
+
+    padding: 15px;
+
+    margin: 12px 0;
+
+    text-align: right;
+
+    border-right:
+        4px solid #facc15;
+
+}
+
+.admin-order.completed {
+
+    border-right-color:
+        #22c55e;
+
+}
+
+.order-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+.order-id {
+
+    color: #38bdf8;
+
+    font-weight: bold;
+
+}
+
+.order-status {
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 0.8rem;
+
+    background: #f59e0b;
+
+    color: #111;
+
+}
+
+.admin-order.completed
+.order-status {
+
+    background: #22c55e;
+
+    color: white;
+
+}
+
+.order-details {
+
+    line-height: 1.9;
+
+    margin-top: 10px;
+
+}
+
+.order-details a {
+
+    color: #38bdf8;
+
+    word-break: break-all;
+
+}
+
+.order-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 12px;
+
+}
+
+.order-complete-btn {
+
+    background: #22c55e;
+
+    border: none;
+
+    color: white;
+
+    padding: 9px 12px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+}
+
+.order-pending-btn {
+
+    background: #f59e0b;
+
+    border: none;
+
+    color: #111;
+
+    padding: 9px 12px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+}
+
+.order-delete-btn {
+
+    background: #ef4444;
+
+    border: none;
+
+    color: white;
+
+    padding: 9px 12px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 700px) {
+
+    header {
+
+        flex-direction: column;
+
+    }
+
+    nav {
+
+        width: 100%;
+
+    }
+
+    nav button,
+    #languageSelect {
+
+        font-size: 0.75rem;
+
+        padding:
+            7px 8px;
+
+    }
+
+    .admin-header {
+
+        flex-direction: column;
+
+    }
+
+    .admin-product {
+
+        grid-template-columns:
+            60px
+            1fr;
+
+    }
+
+    .admin-actions {
+
+        grid-column:
+            1 / -1;
+
+    }
+
+    .order-top {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}
