@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <title>Kriaa Services | خدمات قريعة</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Orbitron:wght@600&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header>
+
+    <h2 class="logo">Kriaa</h2>
+
+    <nav>
+
+        <button onclick="show('home')" data-i18n="home">
+            الرئيسية
+        </button>
+
+        <button onclick="show('social')" data-i18n="services">
+            الخدمات
+        </button>
+
+        <button onclick="show('thumb')" data-i18n="designs">
+            تصاميم
+        </button>
+
+        <select
+            id="languageSelect"
+            onchange="changeLanguage(this.value)"
+        >
+            <option value="ar">العربية</option>
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+        </select>
+
+        <button
+            id="loginButton"
+            onclick="openLogin()"
+            data-i18n="login"
+        >
+            تسجيل الدخول
+        </button>
+
+        <button
+            id="adminButton"
+            class="admin-nav-button"
+            onclick="openAdminDashboard()"
+        >
+            Admin Dashboard
+        </button>
+
+        <button
+            id="logoutButton"
+            class="logout-button"
+            onclick="logout()"
+            data-i18n="logout"
+        >
+            تسجيل الخروج
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- ==================================================
+     HOME
+================================================== -->
+
+<section id="home" class="page active">
+
+    <div class="hero">
+
+        <img
+            src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
+            alt="Logo"
+        >
+
+        <h1 data-i18n="heroTitle">
+            🔥 كبّر حسابك بسهولة
+        </h1>
+
+        <p data-i18n="heroText">
+            خدمات سريعة ونتائج مضمونة 100%
+        </p>
+
+        <button
+            class="btn pulse"
+            onclick="show('social')"
+            data-i18n="start"
+        >
+            ابدأ الآن
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     SERVICES
+================================================== -->
+
+<section id="social" class="page">
+
+    <h2 data-i18n="servicesTitle">
+        📊 خدماتنا المطورة
+    </h2>
+
+    <div
+        id="productsContainer"
+        class="cards"
+    ></div>
+
+</section>
+
+
+<!-- ==================================================
+     THUMBNAILS
+================================================== -->
+
+<section id="thumb" class="page">
+
+    <h2 data-i18n="thumbnails">
+        🎨 الصور المصغرة
+    </h2>
+
+    <div
+        class="card"
+        style="margin:auto;width:280px;"
+    >
+
+        <img
+            src="https://cdn-icons-png.flaticon.com/512/3502/3502688.png"
+            alt="Thumbnail"
+        >
+
+        <h3>
+            Thumbnail
+        </h3>
+
+        <p class="price">
+            15DT
+        </p>
+
+        <button
+            class="buy-btn"
+            style="width:100%"
+            onclick="openOrderModal('Thumbnail Design', 'Thumbnail')"
+            data-i18n="orderDesign"
+        >
+            اطلب تصميمك
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     LOGIN MODAL
+================================================== -->
+
+<div
+    id="loginModal"
+    class="modal"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeLogin()"
+        >
+            ×
+        </button>
+
+        <h2 data-i18n="loginTitle">
+            🔐 تسجيل الدخول
+        </h2>
+
+        <input
+            type="text"
+            id="usernameInput"
+            placeholder="اسم المستخدم"
+            autocomplete="username"
+        >
+
+        <input
+            type="password"
+            id="passwordInput"
+            placeholder="كلمة المرور"
+            autocomplete="current-password"
+        >
+
+        <button
+            class="login-submit"
+            onclick="login()"
+            data-i18n="login"
+        >
+            تسجيل الدخول
+        </button>
+
+        <p id="loginMessage"></p>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     ORDER MODAL
+================================================== -->
+
+<div
+    id="orderModal"
+    class="modal"
+>
+
+    <div class="modal-box order-box">
+
+        <button
+            class="close-modal"
+            onclick="closeOrderModal()"
+        >
+            ×
+        </button>
+
+        <h2>
+            🛒 تأكيد الطلب
+        </h2>
+
+        <div class="selected-service">
+
+            <span>
+                الخدمة:
+            </span>
+
+            <strong id="orderServiceName">
+                -
+            </strong>
+
+        </div>
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="👤 اسمك"
+        >
+
+        <input
+            type="url"
+            id="accountLink"
+            placeholder="🔗 رابط الحساب"
+        >
+
+        <input
+            type="url"
+            id="contentLink"
+            placeholder="🎬 رابط الفيديو أو الصورة"
+        >
+
+        <label class="field-label">
+            🔢 اختر العدد
+        </label>
+
+        <select id="orderQuantity">
+
+            <option value="1000">
+                1000
+            </option>
+
+            <option value="2000">
+                2000
+            </option>
+
+            <option value="3000">
+                3000
+            </option>
+
+        </select>
+
+        <div class="delivery-info">
+
+            ⏱️ يتم تجهيز الطلب خلال
+            <strong>2h أو أقل</strong>
+            حسب الخدمة.
+
+        </div>
+
+
+        <h3 class="method-title">
+            اختر طريقة إرسال الطلب
+        </h3>
+
+        <div class="contact-methods">
+
+            <button
+                class="whatsapp-order"
+                onclick="submitOrderWhatsApp()"
+            >
+                🟢 WhatsApp
+            </button>
+
+        </div>
+
+        <p
+            id="orderMessage"
+            class="order-message"
+        ></p>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     ADMIN DASHBOARD
+================================================== -->
+
+<section
+    id="adminDashboard"
+    class="page admin-page"
+>
+
+    <div class="admin-header">
+
+        <div>
+
+            <h2>
+                👑 Admin Dashboard
+            </h2>
+
+            <p>
+                إدارة المتجر والطلبات
+            </p>
+
+        </div>
+
+        <button
+            onclick="show('social')"
+            class="back-button"
+        >
+            العودة للمتجر
+        </button>
+
+    </div>
+
+
+    <!-- ==================================================
+         ADD PRODUCT
+    ================================================== -->
+
+    <div class="admin-panel">
+
+        <h3>
+            ➕ إضافة منتج جديد
+        </h3>
+
+        <input
+            type="text"
+            id="newProductName"
+            placeholder="اسم المنتج"
+        >
+
+        <input
+            type="text"
+            id="newProductPrice"
+            placeholder="السعر مثال: 10DT"
+        >
+
+        <label class="upload-label">
+            🖼️ صورة المنتج
+        </label>
+
+        <input
+            type="file"
+            id="newProductImage"
+            accept="image/*"
+        >
+
+        <div
+            id="imagePreview"
+            class="image-preview"
+        ></div>
+
+        <input
+            type="text"
+            id="newProductDescription"
+            placeholder="وصف المنتج"
+        >
+
+        <input
+            type="text"
+            id="newProductQuantity"
+            placeholder="الكمية الافتراضية مثال: 1000 متابع"
+        >
+
+        <button
+            class="admin-add-button"
+            onclick="addProduct()"
+        >
+            إضافة المنتج
+        </button>
+
+    </div>
+
+
+    <!-- ==================================================
+         PRODUCTS
+    ================================================== -->
+
+    <div class="admin-panel">
+
+        <h3>
+            🛍️ المنتجات الحالية
+        </h3>
+
+        <div id="adminProducts"></div>
+
+    </div>
+
+
+    <!-- ==================================================
+         ORDERS
+    ================================================== -->
+
+    <div class="admin-panel">
+
+        <div class="orders-title">
+
+            <h3>
+                📦 الطلبات
+            </h3>
+
+            <span
+                id="ordersCount"
+                class="orders-count"
+            >
+                0
+            </span>
+
+        </div>
+
+        <div id="adminOrders"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     WHATSAPP FLOAT
+================================================== -->
+
+<div
+    class="whatsapp-float"
+    onclick="whatsapp()"
+>
+    💬
+</div>
+
+
+<script src="./script.js"></script>
+
+</body>
+</html>
